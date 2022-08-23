@@ -2,7 +2,7 @@ import { useState } from "react"
 
 const NewNote = () => {
     const [title, setTitle] = useState('');
-    const [autor, setAutor] = useState('');
+    const [author, setAuthor] = useState('');
     const [note, setNote] = useState('');
     const [message, setMessage] = useState(false);
 
@@ -15,7 +15,8 @@ const NewNote = () => {
         const validate = validationForm();
         
         if(validate){
-            console.log('esta todo legal');
+            const newNote = { title, author, note }   
+            sendData(newNote);
         } else {
             setMessage(true);
             setTimeout(() => {setMessage(false)}, 2500);
@@ -27,13 +28,25 @@ const NewNote = () => {
         if(!title.trim()){
             return false;
         }
-        if(!autor.trim()){
+        if(!author.trim()){
             return false;
         } 
         if(!note.trim()){
             return false;
         } return true;  
     }
+
+    const sendData = async (data) =>{
+        try {       
+            await fetch('http://localhost:5000/notes',{
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data) 
+            })
+        } catch (error) {
+            console.log(error)
+        }
+    } 
 
 
     return ( 
@@ -54,8 +67,8 @@ const NewNote = () => {
                         type="text" 
                         id="name" 
                         className={inputClass} 
-                        value={autor}
-                        onChange={(e) => setAutor(e.target.value)} 
+                        value={author}
+                        onChange={(e) => setAuthor(e.target.value)} 
                     />
                 </div>
                 <div className={inputContainerClass}>
