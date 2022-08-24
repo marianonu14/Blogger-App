@@ -7,7 +7,7 @@ const NewNote = () => {
     const [message, setMessage] = useState(false);
 
     const inputContainerClass = 'flex flex-col gap-2'
-    const inputClass = 'bg-gray-200 rounded border border-black p-2 text-lg'
+    const inputClass = 'bg-gray-200 rounded border border-black p-2 text-base md:text-lg'
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -52,7 +52,7 @@ const NewNote = () => {
     return ( 
             <form onSubmit={handleSubmit} className="flex flex-col h-full w-1/2 m-auto justify-evenly text-2xl ">
                 <div className={inputContainerClass}>
-                    <label htmlFor="name">Title</label>
+                    <label htmlFor="name" className="text-lg md:text-2xl">Title</label>
                     <input 
                         type="text" 
                         id="name" 
@@ -62,7 +62,7 @@ const NewNote = () => {
                     />
                 </div>
                 <div className={inputContainerClass}>
-                    <label htmlFor="name">Autor</label>
+                    <label htmlFor="name" className="text-lg md:text-2xl">Autor</label>
                     <input 
                         type="text" 
                         id="name" 
@@ -72,7 +72,7 @@ const NewNote = () => {
                     />
                 </div>
                 <div className={inputContainerClass}>
-                    <label htmlFor="name">Note</label> 
+                    <label htmlFor="name" className="text-lg md:text-2xl">Note</label> 
                     <textarea 
                         type="text" 
                         id="name" 
@@ -81,7 +81,7 @@ const NewNote = () => {
                         onChange={(e) => setNote(e.target.value)} 
                     />
                 </div>
-                <button className="bg-gray-900 rounded-md py-2" type="submit">Add New Note</button>
+                <button className="bg-gray-900 rounded-md py-2 text-lg md:text-xl" type="submit">Add New Note</button>
                 {message && <p className="bg-red-500 text-center text-base text-white uppercase p-1 rounded">All fields are required</p>}
             </form>
      );

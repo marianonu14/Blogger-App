@@ -25,8 +25,8 @@ const Note = () => {
     const { title, author , note} = notes;
     return ( 
         <div className="flex flex-col h-full w-3/4 m-auto items-center">
-            <h1 className="text-3xl py-10 text-orange-800"><span className="font-bold">Title :</span> {title} | <span className="font-bold">Author :</span> {author} </h1>
-            <p className="text-xl text-orange-600">{note}</p>
+            <h1 className="text-2xl md:text-3xl py-10 text-orange-800"><span className="font-bold">Title :</span> {title} | <span className="font-bold">Author :</span> {author} </h1>
+            <p className="md:text-xl text-orange-600 mt-10">{note}</p>
         </div>
      );
 }
