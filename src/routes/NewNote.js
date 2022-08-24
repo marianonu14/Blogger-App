@@ -81,7 +81,7 @@ const NewNote = () => {
                         onChange={(e) => setNote(e.target.value)} 
                     />
                 </div>
-                <button className="bg-gray-900 rounded-md py-2" type="submit">Add Note</button>
+                <button className="bg-gray-900 rounded-md py-2" type="submit">Add New Note</button>
                 {message && <p className="bg-red-500 text-center text-base text-white uppercase p-1 rounded">All fields are required</p>}
             </form>
      );

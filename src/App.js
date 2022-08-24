@@ -16,7 +16,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="allnotes" element={<AllNotes />} />
-        <Route path='allnotes/:noteid' element={<Note />} />
+        <Route path="allnotes/:noteid" element={<Note />} />
         <Route path="newnote" element={<NewNote />} />
         <Route path="aboutus" element={<AboutUs />} />
         <Route path="*" element={<NotFounded />} />
