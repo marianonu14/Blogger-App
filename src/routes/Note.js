@@ -7,11 +7,11 @@ const Note = () => {
 
     const fetchNotes = async () => {
         try {
-            const response = await fetch('http://localhost:5000/notes');
+            const response = await fetch('http://localhost:5000/api/notes');
             const result = await response.json();
             
-            const resultFilter = result.find(elem => elem.id === parseInt(noteid));
-            
+            const resultFilter = result.find(elem => elem.id === noteid);
+
             setNotes(resultFilter);
         } catch (error) {
             console.log(error);

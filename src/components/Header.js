@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 
 const Header = () => {
     return ( 
-        <header className="flex justify-between p-5 mx-10">
+        <header className="flex justify-between p-8">
             <NavLink to="/" className="text-2xl">Blogger App</NavLink>
             <nav className="px-10 flex gap-5 text-lg">
                 <NavLink 

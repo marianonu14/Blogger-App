@@ -11,7 +11,7 @@ import Footer from "./components/Footer";
 
 function App() {
   return (
-    <div className="h-screen flex flex-col justify-between">
+    <div className="h-full min-h-screen flex flex-col justify-between">
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />

@@ -38,7 +38,7 @@ const NewNote = () => {
 
     const sendData = async (data) =>{
         try {       
-            await fetch('http://localhost:5000/notes',{
+            await fetch('http://localhost:5000/api/notes',{
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(data) 
@@ -50,7 +50,7 @@ const NewNote = () => {
 
 
     return ( 
-            <form onSubmit={handleSubmit} className="flex flex-col h-full w-1/2 m-auto justify-evenly text-2xl ">
+            <form onSubmit={handleSubmit} className="flex flex-col gap-10 w-3/4 md:w-1/2 m-auto text-2xl ">
                 <div className={inputContainerClass}>
                     <label htmlFor="name" className="text-lg md:text-2xl">Title</label>
                     <input 
@@ -81,8 +81,13 @@ const NewNote = () => {
                         onChange={(e) => setNote(e.target.value)} 
                     />
                 </div>
-                <button className="bg-gray-900 rounded-md py-2 text-lg md:text-xl" type="submit">Add New Note</button>
-                {message && <p className="bg-red-500 text-center text-base text-white uppercase p-1 rounded">All fields are required</p>}
+                <button 
+                className="bg-gray-900 rounded-md py-2 text-lg md:text-xl hover:text-gray-900 hover:bg-orange-600 duration-500 " 
+                type="submit">
+                    Add New Note
+                </button>
+                {message && 
+                <p className="bg-red-500 text-center text-base text-white uppercase p-1 rounded">All fields are required</p>}
             </form>
      );
 }
