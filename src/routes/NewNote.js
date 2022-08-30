@@ -4,7 +4,8 @@ const NewNote = () => {
     const [title, setTitle] = useState('');
     const [author, setAuthor] = useState('');
     const [note, setNote] = useState('');
-    const [message, setMessage] = useState(false);
+    const [messageError, setMessageError] = useState(false);
+    const [messageSuccess, setMessageSuccess] = useState(false);
 
     const inputContainerClass = 'flex flex-col gap-2'
     const inputClass = 'bg-gray-200 rounded border border-black p-2 text-base md:text-lg'
@@ -17,23 +18,30 @@ const NewNote = () => {
         if(validate){
             const newNote = { title, author, note }   
             sendData(newNote);
+            setMessageSuccess(true);
+            setTimeout(() => {setMessageSuccess(false)}, 2500);
+            resetForm();
         } else {
-            setMessage(true);
-            setTimeout(() => {setMessage(false)}, 2500);
+            setMessageError(true);
+            setTimeout(() => {setMessageError(false)}, 2500);
             return;
         }
     }
 
     const validationForm = () => {
-        if(!title.trim()){
-            return false;
-        }
-        if(!author.trim()){
-            return false;
-        } 
-        if(!note.trim()){
-            return false;
-        } return true;  
+        if(!title.trim()) return false;
+        
+        if(!author.trim()) return false;
+         
+        if(!note.trim()) return false;
+         
+        return true;  
+    }
+
+    const resetForm = () => {
+        setTitle('');
+        setAuthor('');
+        setNote('');
     }
 
     const sendData = async (data) =>{
@@ -48,6 +56,7 @@ const NewNote = () => {
         }
     } 
 
+    const messageClass = "text-center text-base text-white uppercase p-2 rounded"
 
     return ( 
             <form onSubmit={handleSubmit} className="flex flex-col gap-10 w-3/4 md:w-1/2 m-auto text-2xl ">
@@ -86,8 +95,8 @@ const NewNote = () => {
                 type="submit">
                     Add New Note
                 </button>
-                {message && 
-                <p className="bg-red-500 text-center text-base text-white uppercase p-1 rounded">All fields are required</p>}
+                {messageError && <p className={`bg-red-500 ${messageClass}`}>All fields are required</p>}
+                {messageSuccess && <p className={`bg-green-500 ${messageClass}`}>Thanks you for sharing a note with us</p>}
             </form>
      );
 }

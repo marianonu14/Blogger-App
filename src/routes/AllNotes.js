@@ -35,18 +35,18 @@ const AllNotes = () => {
             {notes.length === 0 && <p className="text-center text-2xl">No Notes Added</p>}
             {notes && 
             notes.map(elem => 
-            <div key={elem.id} className='flex flex-col md:flex-row justify-between items-center gap-5 w-3/4 md:w-4/5 m-auto my-10 p-5 rounded bg-gray-700'>
+            <div key={elem.id} className='flex flex-col md:flex-row justify-between items-center gap-5 w-3/4 md:w-4/5 m-auto my-10 p-5 rounded bg-gray-800'>
                 <p className="text-xl"><span className="text-orange-500">Title:</span> {elem.title}</p>
                 <p className="text-xl"><span className="text-orange-500">Author:</span> {elem.author}</p>
                 <div className="flex gap-5">
                     <button 
-                    className="bg-red-600 p-5 rounded-md text-white"
+                    className="bg-red-600 text-white p-5 rounded-md hover:bg-white hover:text-red-600 duration-500 ease-in-out"
                     onClick={deleteNote}
                     value={elem.id}>
                         Delete Note
                     </button>
                     <Link to={`${elem.id}`}>
-                        <button className="bg-gray-900 p-5 rounded-md">Read the Note</button>
+                        <button className="bg-orange-500 text-white p-5 rounded-md hover:bg-white hover:text-orange-600 duration-500 ease-in-out">Read the Note</button>
                     </Link>
                 </div>
             </div>) }
