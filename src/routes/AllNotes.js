@@ -7,7 +7,7 @@ const AllNotes = () => {
 
     const fetchNotes = async () => {
         try {
-            const response = await fetch('http://localhost:5000/api/notes');
+            const response = await fetch('https://blogger-backend-kappa.vercel.app/api/notes');
             const result = await response.json();
             setNotes(result);
         } catch (error) {
@@ -21,7 +21,7 @@ const AllNotes = () => {
 
     const deleteNote = async (e) => {
         try {       
-            await fetch(`http://localhost:5000/api/notes/${e.target.value}`,{
+            await fetch(`https://blogger-backend-kappa.vercel.app/api/notes/${e.target.value}`,{
             method: 'DELETE',
             headers: { 'Content-Type': 'application/json' },
             })

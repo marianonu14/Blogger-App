@@ -7,7 +7,7 @@ const Note = () => {
 
     const fetchNotes = async () => {
         try {
-            const response = await fetch('http://localhost:5000/api/notes');
+            const response = await fetch('https://blogger-backend-kappa.vercel.app/api/notes');
             const result = await response.json();
             
             const resultFilter = result.find(elem => elem.id === noteid);

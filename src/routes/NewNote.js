@@ -46,7 +46,7 @@ const NewNote = () => {
 
     const sendData = async (data) =>{
         try {       
-            await fetch('http://localhost:5000/api/notes',{
+            await fetch('https://blogger-backend-kappa.vercel.app/api/notes',{
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(data) 
