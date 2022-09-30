@@ -28,4 +28,4 @@ You will also see any lint errors in the console.
 
 https://blogger-app-seven.vercel.app/
 
-![Project App](https://github.com/marianonu14/Formula1-Api/blob/main/public/formula1readme.png?raw=true)
+![Project App](https://github.com/marianonu14/Blogger-App/blob/main/src/assets/bloggerappreadme.png?raw=true)
